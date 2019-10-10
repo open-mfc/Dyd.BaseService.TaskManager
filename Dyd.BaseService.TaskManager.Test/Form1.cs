@@ -35,7 +35,7 @@ namespace Dyd.BaseService.TaskManager.Test
             //CompressHelper.UnCompress(@"E:\111.zip",@"E:\111");
 
 
-           //SqlHelper.ExcuteSql("server=192.168.17.201;Initial Catalog=dyd_bs_task;User ID=sa;Password=Xx~!@#;", (c) =>
+           //SqlHelper.ExcuteSql("Server=10.10.10.35;Database=dyd_bs_task;UID=TxoooNewDataBaseDesignUser;Password=Tx)))NewSJCoolSJPassWORderAdmin;", (c) =>
            //{
            //    Domain.Dal.tb_version_dal versiondal = new Domain.Dal.tb_version_dal();
            //    versiondal.Edit(c, new tb_version_model()
@@ -50,7 +50,7 @@ namespace Dyd.BaseService.TaskManager.Test
            //});
 
             XXF.BaseService.TaskManager.SystemRuntime.TaskAppConfigInfo tai = new XXF.BaseService.TaskManager.SystemRuntime.TaskAppConfigInfo();
-            tai.Add("ConfigConnectString", @"server=192.168.17.205;Initial Catalog=dyd_new_config;User ID=sa;Password=Xx~!@#; ");
+            tai.Add("ConfigConnectString", @"Server=10.10.10.35;Database=dyd_bs_task;UID=TxoooNewDataBaseDesignUser;Password=Tx)))NewSJCoolSJPassWORderAdmin");
             string o = new XXF.Serialization.JsonHelper().Serializer(tai);
             //int a = 1;
 

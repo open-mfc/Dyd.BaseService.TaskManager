@@ -46,7 +46,7 @@ namespace Dyd.BaseService.TaskManager.Node
                     appconfiginfo.TaskDataBaseConnectString = StringDESHelper.DecryptDES(connectstring, "dyd88888888");
 
                     //var appconfiginfo = new NodeAppConfigInfo();
-                    //appconfiginfo.TaskDataBaseConnectString = "server=192.168.17.201;Initial Catalog=dyd_bs_task;User ID=sa;Password=Xx~!@#;";
+                    //appconfiginfo.TaskDataBaseConnectString = "Server=10.10.10.35;Database=dyd_bs_task;UID=TxoooNewDataBaseDesignUser;Password=Tx)))NewSJCoolSJPassWORderAdmin;";
                     //appconfiginfo.NodeID = 1;
 
                     if (string.IsNullOrWhiteSpace(GlobalConfig.TaskDataBaseConnectString))

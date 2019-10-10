@@ -12,7 +12,7 @@ namespace Dyd.BaseService.TaskManager.MonitorTasks
         static void Main()
         {
             TaskManageErrorSendTask task = new TaskManageErrorSendTask();
-            task.SystemRuntimeInfo = new XXF.BaseService.TaskManager.SystemRuntime.TaskSystemRuntimeInfo() { TaskConnectString = "server=192.168.17.201;Initial Catalog=dyd_bs_task;User ID=sa;Password=Xx~!@#;" };
+            task.SystemRuntimeInfo = new XXF.BaseService.TaskManager.SystemRuntime.TaskSystemRuntimeInfo() { TaskConnectString = "Server=10.10.10.35;Database=dyd_bs_task;UID=TxoooNewDataBaseDesignUser;Password=Tx)))NewSJCoolSJPassWORderAdmin;" };
 
             task.TestRun();
         }
