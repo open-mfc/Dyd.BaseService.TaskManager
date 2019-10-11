@@ -17,7 +17,6 @@ namespace Dyd.BaseService.TaskManager.Demo
         static void Main()
         {
             DemoTask task = new DemoTask();
-
             task.TestRun();
         }
     }

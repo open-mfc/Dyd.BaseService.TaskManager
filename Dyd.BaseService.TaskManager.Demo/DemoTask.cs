@@ -36,8 +36,10 @@ namespace Dyd.BaseService.TaskManager.Demo
             var databasetempinfo = this.OpenOperator.GetDataBaseTempData<DemoTaskDatabaseTempInfo>();
             if (databasetempinfo == null)//若任务第一次运行，可能没有临时数据。当然也可以在发布任务的时候配置临时数据也可。
             {
-                databasetempinfo = new DemoTaskDatabaseTempInfo();
-                databasetempinfo.LastLogID = 0;
+                databasetempinfo = new DemoTaskDatabaseTempInfo
+                {
+                    LastLogID = 0
+                };
             }
 
             /*将任务的临时数据持久化到数据库中，临时数据以json的形式保存在数据库里面，便于任务上下文的恢复和信息传递【注意：不应用于"频繁的"存储"大量的"临时数据，会操作网络耗时和数据库性能差】
@@ -48,8 +50,10 @@ namespace Dyd.BaseService.TaskManager.Demo
             var localtempinfo = this.OpenOperator.GetLocalTempData<DemoTaskLocalTempInfo>();
             if (localtempinfo == null)//若任务第一次运行，可能没有临时数据。当然也可以在发布任务的时候上传临时数据json至安装压缩包中也可。
             {
-                localtempinfo = new DemoTaskLocalTempInfo();
-                localtempinfo.file = new byte[0];
+                localtempinfo = new DemoTaskLocalTempInfo
+                {
+                    File = new byte[0]
+                };
             }
 
             /*将任务的临时数据持久化到本地安装目录中，临时数据以json的形式保存在本地安装目录里面，便于任务上下文的恢复和信息传递【注意：本地临时数据一般用于保存"大量的"临时数据】
@@ -70,9 +74,9 @@ namespace Dyd.BaseService.TaskManager.Demo
         {
             /*测试环境下任务的配置信息需要手工填写,正式环境下需要配置在任务配置中心里面*/
             this.AppConfig = new XXF.BaseService.TaskManager.SystemRuntime.TaskAppConfigInfo();
-            this.AppConfig.Add("sendmailhost", "smtp.163.com");
-            this.AppConfig.Add("sendmailname", "fengyeguigui@163.com");
-            this.AppConfig.Add("password", "472790378@");
+            this.AppConfig.Add("sendmailhost", "smtp.qq.com");
+            this.AppConfig.Add("sendmailname", "2060632377@qq.com");
+            this.AppConfig.Add("password", "txooo.com");
 
             base.TestRun();
         }
@@ -93,6 +97,6 @@ namespace Dyd.BaseService.TaskManager.Demo
     /// </summary>
     public class DemoTaskLocalTempInfo
     {
-        public byte[] file { get; set; }
+        public byte[] File { get; set; }
     }
 }
