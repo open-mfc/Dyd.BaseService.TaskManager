@@ -102,7 +102,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <Content Include="卸载.bat" />
-    <None Include="Dyd.BaseService.TaskManager.WinService_TemporaryKey.pfx" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
