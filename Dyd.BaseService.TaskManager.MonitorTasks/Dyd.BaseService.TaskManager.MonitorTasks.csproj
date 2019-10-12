@@ -41,6 +41,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dingtalk.TopSdk">
+      <HintPath>..\引用\Dingtalk.TopSdk.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -61,6 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DingTalkService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaskManageErrorSendTask.cs" />
     <Compile Include="TaskManageLongRunningKillTask.cs" />

@@ -61,9 +61,9 @@ namespace Dyd.BaseService.TaskManager.Demo
             this.OpenOperator.SaveLocalTempData(localtempinfo);
 
             {
-                string msg = "执行业务中...."+ this.AppConfig["sendmailhost"];
+                string msg = "执行业务中...." + (this.AppConfig.ContainsKey("sendmailhost") ? this.AppConfig["sendmailhost"] : "");
                 Debug.WriteLine(msg);
-                System.IO.File.AppendAllText(this.OpenOperator.GetTaskInstallDirectory()+"业务.txt", msg);
+                System.IO.File.AppendAllText(this.OpenOperator.GetTaskInstallDirectory() + "业务.txt", msg);
             }
         }
         /// <summary>
@@ -76,7 +76,7 @@ namespace Dyd.BaseService.TaskManager.Demo
             this.AppConfig = new XXF.BaseService.TaskManager.SystemRuntime.TaskAppConfigInfo();
             this.AppConfig.Add("sendmailhost", "smtp.qq.com");
             this.AppConfig.Add("sendmailname", "2060632377@qq.com");
-            this.AppConfig.Add("password", "ipycocdwuinwedaa");
+            this.AppConfig.Add("password", "xxx");
 
             base.TestRun();
         }

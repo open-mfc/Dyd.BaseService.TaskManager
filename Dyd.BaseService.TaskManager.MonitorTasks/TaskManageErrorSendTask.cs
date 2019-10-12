@@ -58,32 +58,42 @@ namespace Dyd.BaseService.TaskManager.MonitorTasks
             if (errors != null)
                 foreach (var e in errors)
                 {
-                    sb.AppendLine(string.Format("【错误id】{5}【任务id】{0}【任务名】{1}【错误内容】{2}【创建时间】{3}【集群id】{4}<br/>",
-                        e.error_model.taskid, e.taskname, e.error_model.msg, e.error_model.errorcreatetime, e.error_model.nodeid,
-                        e.error_model.id));
+                    sb.AppendLine($"【错误id】{e.error_model.id}【任务id】{e.error_model.taskid}【创建时间】{e.error_model.errorcreatetime}【集群id】{e.error_model.nodeid}<br/>");
                 }
             string content = sb.ToString();
             if (string.IsNullOrEmpty(content))
                 return;
             content += "\r\n详情请查看错误信息表!";
-
-            EmailHelper emailhelper = new EmailHelper();
-            emailhelper.mailFrom = this.AppConfig["sendmailname"];
-            emailhelper.mailPwd = this.AppConfig["password"];
-            emailhelper.mailSubject = "任务调度平台之错误日报" + DateTime.Now.ToString("yyyyMMddHHmmss")+"【系统邮件】";
-            emailhelper.mailBody = content;
-            emailhelper.isbodyHtml = true;    //是否是HTML
-            emailhelper.host = this.AppConfig["sendmailhost"];//如果是QQ邮箱则：smtp:qq.com,依次类推
-            emailhelper.mailToArray = new string[] { email };//接收者邮件集合
-            emailhelper.mailCcArray = new string[] { };//抄送者邮件集合
             try
             {
-                emailhelper.Send();
+                var _json = new DingTalkService(this.AppConfig["appKey"], this.AppConfig["appsecret"]).SendText(email, content);
+                if (Convert.ToInt32(_json["errcode"].ToString()) != 0)
+                {
+                    OpenOperator.Error($"发送错误钉钉消息失败{_json.ToString()}", null);
+                }
             }
             catch (Exception exp)
             {
-                OpenOperator.Error("发送错误邮件错误", exp);
+                OpenOperator.Error("发送错误钉钉消息失败", exp);
             }
+
+            //EmailHelper emailhelper = new EmailHelper();
+            //emailhelper.mailFrom = this.AppConfig["sendmailname"];
+            //emailhelper.mailPwd = this.AppConfig["password"];
+            //emailhelper.mailSubject = "任务调度平台之错误日报" + DateTime.Now.ToString("yyyyMMddHHmmss")+"【系统邮件】";
+            //emailhelper.mailBody = content;
+            //emailhelper.isbodyHtml = true;    //是否是HTML
+            //emailhelper.host = this.AppConfig["sendmailhost"];//如果是QQ邮箱则：smtp:qq.com,依次类推
+            //emailhelper.mailToArray = new string[] { email };//接收者邮件集合
+            //emailhelper.mailCcArray = new string[] { };//抄送者邮件集合
+            //try
+            //{
+            //    emailhelper.Send();
+            //}
+            //catch (Exception exp)
+            //{
+            //    OpenOperator.Error("发送错误邮件错误", exp);
+            //}
         }
 
         public override void TestRun()
@@ -91,7 +101,7 @@ namespace Dyd.BaseService.TaskManager.MonitorTasks
             this.AppConfig = new XXF.BaseService.TaskManager.SystemRuntime.TaskAppConfigInfo();
             this.AppConfig.Add("sendmailhost", "smtp.qq.com");
             this.AppConfig.Add("sendmailname", "2060632377@qq.com");
-            this.AppConfig.Add("password", "ipycocdwuinwedaa");
+            this.AppConfig.Add("password", "xx");
 
             base.TestRun();
         }

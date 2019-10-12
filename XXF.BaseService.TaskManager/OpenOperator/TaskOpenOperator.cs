@@ -97,7 +97,7 @@ namespace XXF.BaseService.TaskManager.OpenOperator
         /// <param name="exp"></param>
         public void Error(string msg, Exception exp)
         {
-            msg = (msg + " 错误信息:" + exp.Message + " 堆栈打印:" + exp.StackTrace);
+            msg = (msg + " 错误信息:" + exp?.Message + " 堆栈打印:" + exp?.StackTrace);
             if (DllTask.IsTesting == false)
                 DllTask.SystemRuntimeOperator.AddError(new model.tb_error_model
                 {
