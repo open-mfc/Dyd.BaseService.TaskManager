@@ -18,12 +18,12 @@ namespace Dyd.BaseService.TaskManager.Web.Models
                 HttpCookie authcookie = httpContext.Request.Cookies[FormsAuthentication.FormsCookieName];
                 if (authcookie == null)
                 {
-                    string token = httpContext.Request.Form["token"].ToString();
-                    XXF.BasicService.CertCenter.CertCenterProvider ccp = new XXF.BasicService.CertCenter.CertCenterProvider(XXF.BasicService.CertCenter.ServiceCertType.manage);
-                    if (ccp.Auth(token))
-                    {
-                        return true;
-                    }
+                    //string token = httpContext.Request.Form["token"].ToString();
+                    //XXF.BasicService.CertCenter.CertCenterProvider ccp = new XXF.BasicService.CertCenter.CertCenterProvider(XXF.BasicService.CertCenter.ServiceCertType.manage);
+                    //if (ccp.Auth(token))
+                    //{
+                    //    return true;
+                    //}
                     return false;
                 }
                 try
