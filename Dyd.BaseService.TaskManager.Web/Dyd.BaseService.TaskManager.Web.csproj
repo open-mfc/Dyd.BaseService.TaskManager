@@ -434,6 +434,10 @@
       <Project>{327e419a-e161-43b1-9a6a-3284e7f42c2b}</Project>
       <Name>Dyd.BaseService.TaskManager.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\XXF.BaseService.TaskManager\XXF.BaseService.TaskManager.csproj">
+      <Project>{a6bbb109-7948-4c8a-86a2-817c83a365d9}</Project>
+      <Name>XXF.BaseService.TaskManager</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
