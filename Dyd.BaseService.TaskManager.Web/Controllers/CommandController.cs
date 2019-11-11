@@ -17,7 +17,7 @@ namespace Dyd.BaseService.TaskManager.Web.Controllers
         //
         // GET: /Command/
 
-        public ActionResult Index(int taskid = -1, int commandstate = -1, int nodeid = -1, int pagesize = 100, int pageindex = 1)
+        public ActionResult Index(int taskid = -1, int commandstate = -1, int nodeid = -1, int pagesize = 20, int pageindex = 1)
         {
             return this.Visit(Core.EnumUserRole.Admin, () =>
             {

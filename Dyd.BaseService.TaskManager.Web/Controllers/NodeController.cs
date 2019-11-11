@@ -19,7 +19,7 @@ namespace Dyd.BaseService.TaskManager.Web.Controllers
         //
         // GET: /Node/
 
-        public ActionResult Index(string keyword, string CStime, string CEtime, int pagesize = 100, int pageindex = 1)
+        public ActionResult Index(string keyword, string CStime, string CEtime, int pagesize = 20, int pageindex = 1)
         {
             return this.Visit(Core.EnumUserRole.Admin, () =>
             {

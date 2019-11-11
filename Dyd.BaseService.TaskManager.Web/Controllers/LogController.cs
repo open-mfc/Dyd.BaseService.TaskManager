@@ -16,7 +16,7 @@ namespace Dyd.BaseService.TaskManager.Web.Controllers
     {
         //
         // GET: /Log/
-        public ActionResult ErrorLog(string keyword, string CStime, string CEtime, int id = -1, int errortype = -1, int taskid = -1, int nodeid = -1, int pagesize = 100, int pageindex = 1)
+        public ActionResult ErrorLog(string keyword, string CStime, string CEtime, int id = -1, int errortype = -1, int taskid = -1, int nodeid = -1, int pagesize = 20, int pageindex = 1)
         {
             return this.Visit(Core.EnumUserRole.None, () =>
             {
@@ -38,7 +38,7 @@ namespace Dyd.BaseService.TaskManager.Web.Controllers
             });
         }
 
-        public ActionResult Log(string keyword, string CStime, string CEtime, int id = -1, int logtype = -1, int taskid = -1, int nodeid = -1, int pagesize = 100, int pageindex = 1)
+        public ActionResult Log(string keyword, string CStime, string CEtime, int id = -1, int logtype = -1, int taskid = -1, int nodeid = -1, int pagesize = 20, int pageindex = 1)
         {
             return this.Visit(Core.EnumUserRole.None, () =>
             {

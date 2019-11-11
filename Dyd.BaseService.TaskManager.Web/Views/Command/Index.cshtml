@@ -113,10 +113,10 @@
                     </tr>
                 }
             </table>
-            @*<div class="total pt10">
+            <div class="total pt10">
                 <div class="fl">共<em>@Model.TotalPageCount</em>页<em>@Model.TotalItemCount</em>条记录，当前为第<em>@Model.CurrentPageIndex</em>页</div>
-                @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "pageindex", ShowPageIndexBox = true, PageIndexBoxType = PageIndexBoxType.TextBox, CssClass = "mvcPager" })
-            </div>*@
+                @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "pageindex", CssClass = "mvcPager" })
+            </div>
         </div>
     </div>
 </div>

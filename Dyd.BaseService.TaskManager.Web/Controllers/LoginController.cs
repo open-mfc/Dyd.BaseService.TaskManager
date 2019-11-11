@@ -13,46 +13,46 @@ namespace Dyd.BaseService.TaskManager.Web.Controllers
 {
     public class LoginController : Controller
     {
-        ////
-        //// GET: /Login/
-        ////登录
-        //[HttpGet]
-        //public ActionResult Login(string appid, string sign, string returnurl)
-        //{
-        //    XXF.BasicService.CertCenter.CertCenterProvider ccp = new XXF.BasicService.CertCenter.CertCenterProvider(XXF.BasicService.CertCenter.ServiceCertType.manage);
-        //    if (!string.IsNullOrEmpty(appid))
-        //    {
-        //        if (string.IsNullOrWhiteSpace(returnurl))
-        //        {
-        //            throw new Exception("returnurl错误！");
-        //        }
-        //        string appsecret = ccp.GetAppSecret(appid);
-        //        if (appsecret == "")
-        //        {
-        //            throw new Exception("appid不存在！");
-        //        }
-        //        Dictionary<string, string> para = new Dictionary<string, string>();//需要参加签名的参数对
-        //        para.Add("appid", appid);
-        //        para.Add("returnurl", returnurl);
-        //        if (sign != Common.GetSign(para, appsecret))
-        //        {
-        //            throw new Exception("签名错误！");
-        //        }
-        //        if (User.Identity.IsAuthenticated)//已登录过
-        //        {
-        //            string[] tokens = User.Identity.Name.Split(',');
-        //            if (tokens.Count() > 1)
-        //            {
-        //                return RedirectToAction("index", "Task");
-        //            }
-        //        }
-        //    }
-        //    else
-        //    {
+        //
+        // GET: /Login/
+        //登录
+        [HttpGet]
+        public ActionResult Login(string appid, string sign, string returnurl)
+        {
+            //XXF.BasicService.CertCenter.CertCenterProvider ccp = new XXF.BasicService.CertCenter.CertCenterProvider(XXF.BasicService.CertCenter.ServiceCertType.manage);
+            //if (!string.IsNullOrEmpty(appid))
+            //{
+            //    if (string.IsNullOrWhiteSpace(returnurl))
+            //    {
+            //        throw new Exception("returnurl错误！");
+            //    }
+            //    string appsecret = ccp.GetAppSecret(appid);
+            //    if (appsecret == "")
+            //    {
+            //        throw new Exception("appid不存在！");
+            //    }
+            //    Dictionary<string, string> para = new Dictionary<string, string>();//需要参加签名的参数对
+            //    para.Add("appid", appid);
+            //    para.Add("returnurl", returnurl);
+            //    if (sign != Common.GetSign(para, appsecret))
+            //    {
+            //        throw new Exception("签名错误！");
+            //    }
+            //    if (User.Identity.IsAuthenticated)//已登录过
+            //    {
+            //        string[] tokens = User.Identity.Name.Split(',');
+            //        if (tokens.Count() > 1)
+            //        {
+            //            return RedirectToAction("index", "Task");
+            //        }
+            //    }
+            //}
+            //else
+            //{
 
-        //    }
-        //    return View();
-        //}
+            //}
+            return View();
+        }
 
         //登录
         [HttpPost]

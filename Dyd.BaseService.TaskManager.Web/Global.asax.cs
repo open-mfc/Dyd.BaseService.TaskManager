@@ -28,6 +28,9 @@ namespace Dyd.BaseService.TaskManager.Web
 
         protected void Application_Error(Object sender, EventArgs e)
         {
+            Exception _ex = Server.GetLastError();
+            string _errorMsg = "发生异常页: " + Request.Url.ToString() + "[" + Request.UserHostAddress + "]";
+            Server.ClearError();
             Response.StatusCode = 404;
         }
     }

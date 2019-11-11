@@ -21,7 +21,7 @@ namespace Dyd.BaseService.TaskManager.Web.Controllers
         //
         // GET: /Task/
 
-        public ActionResult Index(string taskid, string keyword, string CStime,string CEtime, int categoryid = -1, int nodeid = -1, int userid = -1, int state = -999, int pagesize = 100, int pageindex = 1)
+        public ActionResult Index(string taskid, string keyword, string CStime,string CEtime, int categoryid = -1, int nodeid = -1, int userid = -1, int state = -999, int pagesize = 20, int pageindex = 1)
         {
             return this.Visit(Core.EnumUserRole.None, () =>
             {
