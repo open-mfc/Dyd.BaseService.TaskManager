@@ -1,11 +1,10 @@
-﻿using System;
+﻿using Dyd.BaseService.TaskManager.Core;
+using Dyd.BaseService.TaskManager.Domain.Dal;
+using Dyd.BaseService.TaskManager.Domain.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Dyd.BaseService.TaskManager.Core;
-using Dyd.BaseService.TaskManager.Domain.Dal;
-using Dyd.BaseService.TaskManager.Domain.Model;
 using XXF.ProjectTool;
 
 namespace Dyd.BaseService.TaskManager.MonitorTasks
@@ -67,10 +66,7 @@ namespace Dyd.BaseService.TaskManager.MonitorTasks
             try
             {
                 var _json = new DingTalkService(this.AppConfig["appKey"], this.AppConfig["appsecret"]).SendText(email, content);
-                if (Convert.ToInt32(_json["errcode"].ToString()) != 0)
-                {
-                    OpenOperator.Error($"发送错误钉钉消息失败{_json.ToString()}", null);
-                }
+                OpenOperator.Log(_json.ToString());
             }
             catch (Exception exp)
             {

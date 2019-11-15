@@ -20,13 +20,13 @@ namespace Dyd.BaseService.TaskManager.MonitorTasks
         static DateTime get_token_time;
         public DingTalkService(string appKey, string appsecret)
         {
+            this.appKey = appKey;
+            this.appsecret = appsecret;
+
             if (string.IsNullOrWhiteSpace(access_token) || get_token_time == null || get_token_time.AddHours(1) < DateTime.Now)
             {
                 GetToken();
             }
-
-            this.appKey = appKey;
-            this.appsecret = appsecret;
         }
         public void GetToken()
         {
@@ -121,10 +121,10 @@ namespace Dyd.BaseService.TaskManager.MonitorTasks
                 request.Msg_ = msg;
                 var response = client.Execute(request, access_token);
                 var _json = JObject.Parse(response.Body);
-                if (Convert.ToInt32(_json["errcode"].ToString()) != 0)
-                {
-                    //LogService.AppendDebugLog(typeof(DingTalkService), $"请求地址[{url}]返回{_json.ToString()}");
-                }
+                //if (Convert.ToInt32(_json["errcode"].ToString()) != 0)
+                //{
+                //    //LogService.AppendDebugLog(typeof(DingTalkService), $"请求地址[{url}]返回{_json.ToString()}");
+                //}
                 return _json;
             }
             catch (Exception ex)
