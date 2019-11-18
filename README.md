@@ -1,3 +1,7 @@
+站点及预警管理最新分支地址：
+https://github.com/open-mfc/Dyd.BaseService.TaskManager/commits/%E9%99%8D%E7%BA%A7%E5%89%8D4.7.2
+
+
 国外网速慢,最新版本迁移至http://git.oschina.net/chejiangyi/Dyd.BaseService.TaskManager
 
 ## .net 简单任务调度平台 ##
