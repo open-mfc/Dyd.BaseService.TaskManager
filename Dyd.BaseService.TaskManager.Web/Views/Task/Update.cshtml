@@ -58,8 +58,9 @@
         {
             <input type="hidden" value="@Model.id" name="id" />
         <ul  class="mydetail">
-            <li>
-                <label>任务名</label><input class="mylongtext" type="text" @Html.Raw(Model.taskstate==(int)Dyd.BaseService.TaskManager.Core.EnumTaskState.Running?"readonly=readonly":"") name="taskname" value="@Model.taskname" />
+            <li><b style="color:red;">任务日志约定记录在E:\_taskLog\{任务ID}\目录下，无法获取任务ID的自定义唯一目录【需要自行调整程序的日志配置信息】</b></li>
+            <li>                
+                <label>任务名</label><input class="mylongtext" type="text" @Html.Raw(Model.taskstate == (int)Dyd.BaseService.TaskManager.Core.EnumTaskState.Running ? "readonly=readonly" : "") name="taskname" value="@Model.taskname" />
             </li>
             <li>
                 <label>组别</label>
@@ -81,12 +82,12 @@
             </li>
             <li>
                 <label>节点</label>
-                <select name="nodeid" @Html.Raw(Model.taskstate==(int)Dyd.BaseService.TaskManager.Core.EnumTaskState.Running?"readonly=readonly":"")>
+                <select name="nodeid" @Html.Raw(Model.taskstate == (int)Dyd.BaseService.TaskManager.Core.EnumTaskState.Running ? "readonly=readonly" : "")>
                     @foreach (var n in Node)
-                    { 
-                        <option value="@n.id" @Html.Raw(n.id==@Model.nodeid?"selected=selected":"")>@n.nodename</option>
+                    {
+                        <option value="@n.id" @Html.Raw(n.id == @Model.nodeid ? "selected=selected" : "")>@n.nodename</option>
                     }
-                </select><b style="color:red;">任务日志约定记录在E:\_taskLog\{任务ID}\目录下，无法获取任务ID的自定义唯一目录</b>
+                </select>尽量不要选择 10.10.10.181
             </li>
             <li>
                 <label>任务配置json</label>

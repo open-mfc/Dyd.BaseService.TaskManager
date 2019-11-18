@@ -53,6 +53,7 @@
     @using (Html.BeginForm("Add", "Task", FormMethod.Post, new { enctype = "multipart/form-data", @onsubmit = "return sub()" }))
     {
     <ul class="mydetail">
+        <li><b style="color:red;">任务日志约定记录在E:\_taskLog\{任务ID}\目录下，无法获取任务ID的自定义唯一目录【需要自行调整程序的日志配置信息】</b></li>
         <li>
             <label>任务名</label><input class="mylongtext" type="text" id="taskname" name="taskname" />
         </li>
@@ -60,11 +61,11 @@
             <label>组别</label>
             <select name="categoryid">
                 @foreach (var c in Category)
-                { 
+                {
                     <option value="@c.id">@c.categoryname</option>
                 }
             </select>这就是个任务分类，可以自己添加业务分类
-        </li> 
+        </li>
         <li>
             <label>创建人</label>
             <select name="taskcreateuserid">
@@ -78,10 +79,10 @@
             <label>节点</label>
             <select name="nodeid">
                 @foreach (var n in Node)
-                { 
+                {
                     <option value="@n.id">@n.nodename</option>
                 }
-            </select><b style="color:red;">任务日志约定记录在E:\_taskLog\{任务ID}\目录下，无法获取任务ID的自定义唯一目录</b>
+            </select> 尽量不要选择 10.10.10.181
         </li>
         <li>
             <label>任务配置json</label>
@@ -93,7 +94,7 @@
         </li>
         <li>
             <label>Cron表达式</label>
-            <input  type="text" id="taskcron" name="taskcron" />示范：0/5 * * * * ?  <a target="_blank" href="@Url.Action("cron", "Task", new {  })">Cron表达式生成器</a>（百度搜索:Cron表达式实例 ）<a target="_blank" href="@Url.Action("CustomCorn", "Task", new {  })">自定义cron表达式</a>
+            <input type="text" id="taskcron" name="taskcron" />示范：0/5 * * * * ?  <a target="_blank" href="@Url.Action("cron", "Task", new {  })">Cron表达式生成器</a>（百度搜索:Cron表达式实例 ）<a target="_blank" href="@Url.Action("CustomCorn", "Task", new {  })">自定义cron表达式</a>
 
         </li>
         <li>
