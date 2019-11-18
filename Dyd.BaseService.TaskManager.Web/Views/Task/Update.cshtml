@@ -63,12 +63,12 @@
             </li>
             <li>
                 <label>组别</label>
-                <select name="categoryid" @Html.Raw(Model.taskstate==(int)Dyd.BaseService.TaskManager.Core.EnumTaskState.Running?"readonly=readonly":"")>
+                <select name="categoryid" @Html.Raw(Model.taskstate == (int)Dyd.BaseService.TaskManager.Core.EnumTaskState.Running ? "readonly=readonly" : "")>
                     @foreach (var c in Category)
-                    { 
-                        <option value="@c.id" @Html.Raw(c.id==@Model.categoryid?"selected=selected":"")>@c.categoryname</option>
+                    {
+                        <option value="@c.id" @Html.Raw(c.id == @Model.categoryid ? "selected=selected" : "")>@c.categoryname</option>
                     }
-                </select>
+                </select>这就是个任务分类，可以自己添加业务分类
             </li>
             <li>
                 <label>创建人</label>
@@ -77,7 +77,7 @@
                     { 
                         <option value="@c.id" @Html.Raw(c.id==@Model.taskcreateuserid?"selected=selected":"")>@c.username</option>
                     }
-                </select>
+                </select>这里选择负责开发任务的人
             </li>
             <li>
                 <label>节点</label>
@@ -86,15 +86,15 @@
                     { 
                         <option value="@n.id" @Html.Raw(n.id==@Model.nodeid?"selected=selected":"")>@n.nodename</option>
                     }
-                </select>
+                </select><b style="color:red;">任务日志约定记录在E:\_taskLog\{任务ID}\目录下，无法获取任务ID的自定义唯一目录</b>
             </li>
             <li>
                 <label>任务配置json</label>
-                <textarea id="taskappconfigjson" name="taskappconfigjson" @Html.Raw(Model.taskstate==(int)Dyd.BaseService.TaskManager.Core.EnumTaskState.Running?"readonly=readonly":"") style="height:200px">@Model.taskappconfigjson</textarea>
+                <textarea id="taskappconfigjson" name="taskappconfigjson" @Html.Raw(Model.taskstate == (int)Dyd.BaseService.TaskManager.Core.EnumTaskState.Running ? "readonly=readonly" : "") style="height:200px">@Model.taskappconfigjson</textarea>键值只能是字符串
             </li>
             <li>
                 <label>数据库临时数据json</label>
-                <textarea id="tempdatajson" name="tempdatajson" @Html.Raw(Model.taskstate==(int)Dyd.BaseService.TaskManager.Core.EnumTaskState.Running?"readonly=readonly":"") style="height:200px">@TempData.tempdatajson</textarea>示范:{"key1":"value1","key2":"value2"}
+                <textarea id="tempdatajson" name="tempdatajson" @Html.Raw(Model.taskstate==(int)Dyd.BaseService.TaskManager.Core.EnumTaskState.Running?"readonly=readonly":"") style="height:200px">@TempData.tempdatajson</textarea>示范:{"key1":"value1","key2":"value2"}可以是任何json字符串
             </li>
             <li>
                 <label>Cron表达式</label>

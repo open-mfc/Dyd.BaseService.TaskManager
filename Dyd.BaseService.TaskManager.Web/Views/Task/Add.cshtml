@@ -63,16 +63,16 @@
                 { 
                     <option value="@c.id">@c.categoryname</option>
                 }
-            </select>
+            </select>这就是个任务分类，可以自己添加业务分类
         </li> 
         <li>
             <label>创建人</label>
             <select name="taskcreateuserid">
                 @foreach (var c in User)
-                { 
+                {
                     <option value="@c.id">@c.username</option>
                 }
-            </select>
+            </select>这里选择负责开发任务的人
         </li>
         <li>
             <label>节点</label>
@@ -81,15 +81,15 @@
                 { 
                     <option value="@n.id">@n.nodename</option>
                 }
-            </select>
+            </select><b style="color:red;">任务日志约定记录在E:\_taskLog\{任务ID}\目录下，无法获取任务ID的自定义唯一目录</b>
         </li>
         <li>
             <label>任务配置json</label>
-            <textarea id="taskappconfigjson" name="taskappconfigjson" style="height:200px"></textarea>示范:{"key1":"value1","key2":"value2"}
+            <textarea id="taskappconfigjson" name="taskappconfigjson" style="height:200px"></textarea>示范:{"key1":"value1","key2":"value2"}键值只能是字符串
         </li>
         <li>
             <label>数据库临时数据json</label>
-            <textarea id="tempdatajson" name="tempdatajson" style="height:200px"></textarea>示范:{"key1":"value1","key2":"value2"}
+            <textarea id="tempdatajson" name="tempdatajson" style="height:200px"></textarea>示范:{"key1":"value1","key2":"value2"}可以是任何json字符串
         </li>
         <li>
             <label>Cron表达式</label>
