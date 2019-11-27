@@ -70,7 +70,7 @@ namespace Dyd.BaseService.TaskManager.Web.Controllers
                     string enticket = FormsAuthentication.Encrypt(ticket);
                     HttpCookie cookieofau = new HttpCookie(FormsAuthentication.FormsCookieName, enticket);
                     Response.AppendCookie(cookieofau);
-                    return RedirectToAction("index", "Task", new { userid = user.id });
+                    return RedirectToAction("index", "Task", null);
                 }
             }
             return View();
