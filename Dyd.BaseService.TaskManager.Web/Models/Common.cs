@@ -59,7 +59,7 @@ namespace Dyd.BaseService.TaskManager.Web.Models
 
         public static string HelpHtml(string helpinfo = "使用说明")
         {
-            return "<img src='/content/images/help.png' style='' width='20' height='20' title='" + helpinfo + "'></img>";
+            return "<img src='~/content/images/help.png' style='' width='20' height='20' title='" + helpinfo + "'></img>";
         }
 
         public static int GetUserId(Controller con)

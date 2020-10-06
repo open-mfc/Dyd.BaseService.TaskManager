@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Dyd.BaseService.TaskManager.Node.Tools;
+﻿using Dyd.BaseService.TaskManager.Node.Tools;
+using System;
 using XXF.Api;
 using XXF.ProjectTool;
 
@@ -14,7 +11,7 @@ namespace Dyd.BaseService.TaskManager.Node.SystemMonitor
         {
             get
             {
-                return 1000*60;
+                return 1000 * 60;
             }
         }
         protected override void Run()
@@ -31,7 +28,8 @@ namespace Dyd.BaseService.TaskManager.Node.SystemMonitor
                     LogHelper.AddNodeError("检测到任务平台站点异常", new Exception("节点任务平台Web保持心跳连接时出错"));
                 }
             }
-            catch(Exception exp){
+            catch (Exception exp)
+            {
                 LogHelper.AddNodeError("检测到任务平台站点异常", exp);
             }
 

@@ -1,1 +1,1 @@
-%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\installutil.exe /u C:\Users\马发才\Desktop\TXOOO\TaskSite\任务调度\Dyd.BaseService.TaskManager.WinService.exe
+%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\installutil.exe /u D:\Desktop\Debug\Dyd.BaseService.TaskManager.WinService.exe
