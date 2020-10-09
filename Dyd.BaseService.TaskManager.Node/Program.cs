@@ -28,7 +28,7 @@ namespace Dyd.BaseService.TaskManager.Node
 
             if (testing)
             {
-                GlobalConfig.TaskDataBaseConnectString = "Server=10.10.10.35;Database=dyd_bs_task;UID=TxoooNewDataBaseDesignUser;Password=Tx)))NewSJCoolSJPassWORderAdmin;";
+                GlobalConfig.TaskDataBaseConnectString = @"server=10.1.0.55\APPS,15948;database=dyd_bs_task;uid=gerberwechatuser1;pwd=1qaz@WSX3edc$RFV_1;";
                 GlobalConfig.NodeID = 361;
                 XXF.Common.IOHelper.CreateDirectory(GlobalConfig.TaskSharedDllsDir + @"\");
                 //CommandQueueProcessor.lastMaxID = 1;

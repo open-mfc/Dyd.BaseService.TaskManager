@@ -42,15 +42,15 @@ namespace Dyd.BaseService.TaskManager.Domain.Dal
                 stringSql.Append(@"select max(id) from tb_command s ");
                 DataSet ds = new DataSet();
                 PubConn.SqlToDataSet(ds, stringSql.ToString(), ps.ToParameters());
-                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0 && DBNull.Value != ds.Tables[0].Rows[0][0])
                 {
-                  return Convert.ToInt32(ds.Tables[0].Rows[0][0]);
+                    return Convert.ToInt32(ds.Tables[0].Rows[0][0]);
                 }
                 return 0;
             });
         }
 
-        public void UpdateCommandState(DbConn PubConn,int id,int commandstate)
+        public void UpdateCommandState(DbConn PubConn, int id, int commandstate)
         {
             SqlHelper.Visit(ps =>
             {
@@ -58,7 +58,7 @@ namespace Dyd.BaseService.TaskManager.Domain.Dal
                 ps.Add("@id", id);
                 StringBuilder stringSql = new StringBuilder();
                 stringSql.Append(@"update tb_command set commandstate=@commandstate where id=@id");
-                return PubConn.ExecuteSql(stringSql.ToString(),ps.ToParameters());
+                return PubConn.ExecuteSql(stringSql.ToString(), ps.ToParameters());
             });
         }
 
@@ -70,7 +70,7 @@ namespace Dyd.BaseService.TaskManager.Domain.Dal
             {
                 string sqlwhere = "";
                 string sql = "select ROW_NUMBER() over(order by C.id desc) as rownum,C.*,T.taskname,n.nodename from tb_command C LEFT JOIN tb_task T on  C.taskid=T.id left join tb_node n on C.nodeid=n.id where 1=1 ";
-                if (taskid!=-1)
+                if (taskid != -1)
                 {
                     ps.Add("taskid", taskid);
                     sqlwhere = " and C.taskid=@taskid ";
